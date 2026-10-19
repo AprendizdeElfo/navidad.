@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprendiz de Elfo - Muñecos Navideños Personalizados</title>
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Reset & Estilos Base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #333333;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    a {
+      text-decoration: none;
+    }
+
+    /* Ratio Cuadrado 1:1 para las imágenes principales de productos */
+    .img-square {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    /* Layout Containers */
+    .section {
+      width: 100%;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .two-columns {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .two-columns {
+        flex-direction: row;
+      }
+      .two-columns > div {
+        flex: 1;
+      }
+    }
+
+    /* Botones CTA */
+    .btn-container {
+      text-align: center;
+      padding: 10px 0;
+    }
+    .btn-cta {
+      display: inline-block;
+      background-color: #D6A84F; /* Color del botón */
+      color: #FFFFFF; /* Color del texto */
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 18px 30px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .btn-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0px 6px 20px rgba(0,0,0,0.3);
+      filter: brightness(0.95);
+    }
+
+    /* SECCIÓN 1: Header / Logo Circular */
+    .sec-1 {
+      background-color: #285943;
+      padding: 25px 20px;
+      text-align: center;
+    }
+    .logo-img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto;
+      border: 3px solid #ffffff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* SECCIÓN 2: Headline Hook */
+    .sec-2 {
+      background-color: #285943;
+      color: #ffffff;
+      text-align: center;
+      padding: 10px 20px 40px 20px;
+    }
+    .sec-2 h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+    @media (min-width: 768px) {
+      .sec-2 h1 {
+        font-size: 1.9rem;
+      }
+    }
+
+    /* SECCIÓN 3: Lead Persuasivo */
+    .sec-3 {
+      background-color: #F7F0E3;
+      color: #222;
+    }
+    .sec-3 h2 {
+      font-size: 1.5rem;
+      color: #285943;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+    .sec-3 p {
+      margin-bottom: 15px;
+      font-size: 0.98rem;
+    }
+
+    /* SECCIÓN 4: Objeciones y Tarjetas */
+    .sec-4 {
+      background-color: #B94E48;
+      color: #ffffff;
+    }
+    .sec-4 h3 {
+      text-align: center;
+      font-size: 1.25rem;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      color: #FFF;
+      line-height: 1.3;
+    }
+    .sec-4 p {
+      text-align: left;
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+      background: rgba(0,0,0,0.12);
+      padding: 18px;
+      border-radius: 8px;
+      border-left: 4px solid #D6A84F;
+    }
+
+    /* SECCIÓN 5, 8, 13: CTAs */
+    .sec-cta {
+      background-color: #B94E48;
+      padding: 25px 20px;
+    }
+
+    /* SECCIÓN 6: Producto Súper Confort / Kit */
+    .sec-6 {
+      background-color: #F7F0E3;
+      text-align: center;
+    }
+    .sec-6 h2 {
+      color: #285943;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    .sec-6 img {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* SECCIÓN 7: Combo de Valor */
+    .sec-7 {
+      background-color: #F7F0E3;
+      color: #222;
+    }
+    .combo-box {
+      max-width: 850px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border-left: 6px solid #B94E48;
+    }
+    .combo-list {
+      list-style-type: none;
+      margin: 20px 0;
+    }
+    .combo-list li {
+      margin-bottom: 15px;
+      padding-left: 25px;
+      position: relative;
+    }
+    .combo-list li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #B94E48;
+      font-weight: bold;
+    }
+    .urgent-notice {
+      background-color: #FFF3E0;
+      padding: 15px;
+      border-radius: 8px;
+      color: #b71c1c;
+      font-weight: 600;
+      margin-top: 20px;
+      border: 1px solid #ffe0b2;
+    }
+
+    /* SECCIÓN 9 y 10: Testimonios (Sin recortar) */
+    .sec-9 {
+      background-color: #285943;
+      color: #ffffff;
+      text-align: center;
+      padding-bottom: 10px;
+    }
+    .sec-9 h2 {
+      font-size: 2rem;
+    }
+    .sec-10 {
+      background-color: #285943;
+      padding-top: 10px;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    /* Estilo para imágenes de testimonio sin recorte forzado */
+    .testimonials-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* SECCIÓN 11: Preguntas Frecuentes (Acordeón) */
+    .sec-11 {
+      background-color: #F7F0E3;
+    }
+    .faq-item {
+      background: #ffffff;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .faq-title {
+      padding: 18px 20px;
+      font-weight: 600;
+      color: #285943;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    .faq-title::after {
+      content: '+';
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #B94E48;
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active .faq-title::after {
+      content: '-';
+    }
+    .faq-content {
+      padding: 0 20px 20px 20px;
+      display: none;
+      color: #555;
+    }
+    .faq-item.active .faq-content {
+      display: block;
+    }
+
+    /* SECCIÓN 12: Garantía */
+    .sec-12 {
+      background-color: #B94E48;
+      color: #ffffff;
+    }
+    .sec-12 h2 {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SECCIÓN 1: Logo Centrado en Estilo Circular -->
+  <header class="sec-1">
+    <img src="https://raw.githubusercontent.com/AprendizdeElfo/mu-ecos-navide-os/main/logo_el_aprendiz_de_elfo_fondo_blanco.png" alt="Aprendiz de Elfo Logo" class="logo-img">
+  </header>
+
+  <!-- SECCIÓN 2: Texto Centrado (Promesa) -->
+  <section class="sec-2">
+    <h1>Pasa de una decoración navideña aburrida y repetitiva a crear un hogar cálido, único e inolvidable esta Navidad en menos de 7 días, con muñecos hechos a mano y 100% personalizados.</h1>
+  </section>
+
+  <!-- SECCIÓN 3: Columna Izquierda (Imagen 1:1) / Columna Derecha (Texto) -->
+  <section class="section sec-3">
+    <div class="container two-columns">
+      <div>
+        <img src="https://raw.githubusercontent.com/AprendizdeElfo/mu-ecos-navide-os/main/Abrazo%20navide%C3%B1o%20con%20reno%20de%20peluche.png" alt="Abrazo navideño con reno" class="img-square">
+      </div>
+      <div>
+        <h2>¿Cansada de recorrer tiendas y ver exactamente los mismos adornos genéricos en todas las casas de tus vecinas?</h2>
+        <p>Sabes que tu hogar merece reflejar el amor, la calidez y la esencia única de tu familia en estas fiestas. Con Aprendiz de Elfo, transformamos rincones ordinarios en espacios mágicos llenos de personalidad, donde cada muñeco lleva los colores, detalles y nombres que tú elijas.</p>
+        <p><strong>No dejes para último momento la magia de tu hogar.</strong></p>
+        <p>¡Haz tu pedido personalizado hoy mismo y asegura tus piezas exclusivas antes de que cerremos agenda por temporada!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4: Objeciones y Miedos (Columna Izquierda) / Imagen (Columna Derecha 1:1) -->
+  <section class="section sec-4">
+    <div class="container two-columns">
+      <div>
+        <h3>No tengo tiempo para coordinar personalizaciones o ponerme a encargar cosas</h3>
+        <p>Entiendo perfectamente cómo te sientes; con el trabajo, la casa y la rutina, lo último que quieres es perder tiempo en procesos complicados. Muchas de nuestras clientas sentían lo mismo antes de escribirnos. Sin embargo, descubrieron que con nuestro proceso ágil por WhatsApp solo necesitas 3 minutos para elegir tus colores, nombres y detalles preferidos. Nosotros nos encargamos del resto y lo entregamos en la puerta de tu casa en Mosquera sin complicaciones.</p>
+
+        <h3>Puedo conseguir muñecos navideños más baratos en un supermercado</h3>
+        <p>Entiendo que al principio pienses en el presupuesto y busques opciones más económicas. A muchas mamás les pasó igual, hasta que compraron adornos industriales que terminaron deshilachados o guardados al año siguiente por verse deslucidos. Cuando invierten en nuestras piezas artesanales, descubren que no están comprando un simple adorno sintético de masa, sino un recuerdo familiar duradero, hecho con materiales de alta calidad y detalles únicos que llenarán de orgullo tu sala año tras año.</p>
+
+        <h3>Tengo miedo de que pida algo personalizado y al final no combine con mi decoración o no quede como imaginaba</h3>
+        <p>Comprendo tu duda; da temor encargar algo personalizado y que el resultado final no encaje con la paleta de colores de tu hogar. Otras mamás tenían ese mismo recelo. Por eso creamos una asesoría de diseño personalizada previa: antes de dar la primera puntada, validamos contigo tonos, estilos y acabados para garantizar que el muñeco encaje a la perfección con la decoración que ya tienes.</p>
+      </div>
+      <div>
+        <img src="https://raw.githubusercontent.com/AprendizdeElfo/mu-ecos-navide-os/main/Sonrisa%20navide%C3%B1a%20con%20mu%C3%B1eco%20de%20nieve.png" alt="Sonrisa navideña con muñeco de nieve" class="img-square">
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 5: Botón CTA 1 -->
+  <section class="sec-cta">
+    <div class="container btn-container">
+      <a href="https://wa.link/v21uiu/" target="_blank" class="btn-cta">¡QUIERO MI MUÑECO PERSONALIZADO AHORA</a>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 6: Título e Imagen Centrada (1:1) -->
+  <section class="section sec-6">
+    <div class="container">
+      <h2>El Kit de Magia Navideña Familiar "Aprendiz de Elfo":</h2>
+      <br>
+      <img src="https://raw.githubusercontent.com/AprendizdeElfo/mu-ecos-navide-os/main/Peluches%20navide%C3%B1os%20en%20un%20rinc%C3%B3n%20acogedor.png" alt="Kit de Magia Navideña Familiar" class="img-square">
+    </div>
+  </section>
+
+  <!-- SECCIÓN 7: Oferta de Valor y Exclusividades -->
+  <section class="section sec-7">
+    <div class="container">
+      <div class="combo-box">
+        <p>Al solicitar tu muñeco navideño personalizado hoy, no solo te llevas una pieza artesanal de edición limitada confeccionada especialmente para ti. También recibes de forma totalmente exclusiva:</p>
+        <ul class="combo-list">
+          <li><strong>Personalización completa</strong> de colores y bordado de nombres para cada integrante de tu familia <em>(Valorado en $35.000 — ¡HOY GRATIS!)</em>.</li>
+          <li><strong>Guía exprés de armonía y ubicación decorativa</strong> para que tu sala luzca como de revista <em>(Valorado en $25.000 — ¡HOY GRATIS!)</em>.</li>
+          <li><strong>Empaque de regalo premium "Listo para Sorprender"</strong> con aroma navideño artesanal <em>(Valorado en $15.000 — ¡HOY GRATIS!)</em>.</li>
+        </ul>
+        <div class="urgent-notice">
+          <p><strong>Nota:</strong> Debido al trabajo artesanal detallado que requiere cada pieza, solo elaboramos 20 pedidos personalizados por semana. Una vez completado el cupo, cerramos agenda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 8: Botón CTA 2 -->
+  <section class="sec-cta">
+    <div class="container btn-container">
+      <a href="https://wa.link/v21uiu/" target="_blank" class="btn-cta">¡QUIERO MI MUÑECO PERSONALIZADO AHORA</a>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 9: Título Testimonios -->
+  <section class="section sec-9">
+    <div class="container">
+      <h2>Testimonios</h2>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 10: 3 Imágenes de Testimonios (Sin recortar) -->
+  <section class="section sec-10">
+    <div class="container">
+      <div class="testimonials-grid">
+        <img src="https://raw.githubusercontent.com/AprendizdeElfo/mu-ecos-navide-os/main/zeoob.com_7lmwswfbks_photo.png" alt="Testimonio 1">
+        <img src="https://raw.githubusercontent.com/AprendizdeElfo/mu-ecos-navide-os/main/zeoob.com_llinhej3y8_photo.png" alt="Testimonio 2">
+        <img src="https://raw.githubusercontent.com/AprendizdeElfo/mu-ecos-navide-os/main/zeoob.com_z7x0unq3xi_photo.png" alt="Testimonio 3">
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 11: Preguntas Frecuentes (Acordeón de 3 elementos) -->
+  <section class="section sec-11">
+    <div class="container" style="max-width: 850px;">
+      <h2 style="text-align: center; color: #285943; margin-bottom: 25px;">Preguntas Frecuentes</h2>
+      
+      <div class="faq-item">
+        <div class="faq-title">¿Cómo sé que la calidad de los muñecos durará más de una Navidad?</div>
+        <div class="faq-content">
+          <p>En Aprendiz de Elfo utilizamos textiles de alta gama y bordados reforzados a mano. Más de 150 familias en Mosquera y la Sabana ya han decorado sus hogares con nuestras piezas durante más de 3 años consecutivos, manteniendo la misma suavidad, brillo y firmeza del primer día.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-title">¿Puedo personalizar el muñeco con los colores exactos de mi árbol o los nombres de mis hijos?</div>
+        <div class="faq-content">
+          <p>¡Por supuesto! Es nuestra especialidad. Como artesanos y creadores, elegimos minuciosamente cada tela y color junto a ti. Nuestras clientas destacan constantemente en sus opiniones cómo el nivel de detalle y los nombres personalizados hacen que sus hijos se sientan verdaderamente protagonistas de la Navidad.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-title">¿Cuánto tarda en llegar mi pedido a Mosquera y zonas cercanas?</div>
+        <div class="faq-content">
+          <p>Una vez confirmes la personalización, nos toma entre 3 y 5 días hábiles confeccionar tu pieza con todo el amor y detalle. Contamos con envíos locales garantizados e inspeccionados previamente para asegurarnos de que tu producto llegue impecable y listo para lucir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 12: Garantía (Imagen 1:1 a la Izquierda, Texto a la Derecha) -->
+  <section class="section sec-12">
+    <div class="container two-columns">
+      <div>
+        <img src="https://raw.githubusercontent.com/AprendizdeElfo/mu-ecos-navide-os/main/Mu%C3%B1eco%20de%20nieve%20navide%C3%B1o%20con%20compa%C3%B1ero.png" alt="Muñeco de nieve con compañero" class="img-square">
+      </div>
+      <div>
+        <h2 style="text-align: center;">NUESTRA GARANTÍA TOTAL "HOGAR MÁGICO 100%"</h2>
+        <br>
+        <p>Estamos tan seguros de la belleza, detalle y calidad de nuestras piezas que asumimos todo el riesgo por ti. Si al recibir tu muñeco personalizado en casa sientes que no supera tus expectativas o no combina exactamente como querías con tu hogar, nos lo devuelves sin hacer preguntas y te reembolsamos el 100% de tu dinero inmediatamente. Queremos que tu única preocupación esta Navidad sea disfrutar con quienes más amas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 13: Botón CTA 3 Final -->
+  <section class="sec-cta">
+    <div class="container btn-container">
+      <a href="https://wa.link/v21uiu/" target="_blank" class="btn-cta">¡QUIERO MI MUÑECO PERSONALIZADO AHORA</a>
+    </div>
+  </section>
+
+  <!-- Script interactivo para el funcionamiento del Acordeón FAQ -->
+  <script>
+    document.querySelectorAll('.faq-title').forEach(item => {
+      item.addEventListener('click', () => {
+        const parent = item.parentElement;
+        
+        // Cierra los demás elementos del acordeón si deseas que solo uno esté abierto a la vez (Opcional)
+        // document.querySelectorAll('.faq-item').forEach(el => {
+        //   if (el !== parent) el.classList.remove('active');
+        // });
+
+        parent.classList.toggle('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
